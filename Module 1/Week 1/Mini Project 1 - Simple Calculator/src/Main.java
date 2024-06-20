@@ -2,24 +2,9 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static double add(double... numbers) {
-        double sum = 0;
-        for (double num : numbers) {
-            sum += num;
-        }
-        return sum;
-    }
-
-    public static double multiply(double... numbers) {
-        double product = 1;
-        for (double num : numbers) {
-            product *= num;
-        }
-        return product;
-    }
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Calculator calculator = new Calculator();
         boolean computeAgain = true;
 
         while (computeAgain) {
@@ -39,7 +24,14 @@ public class Main {
                             System.out.print("Enter number " + (i + 1) + ": ");
                             addNumbers[i] = scanner.nextDouble();
                         }
-                        result = add(addNumbers);
+                        result = calculator.add(addNumbers);
+                        break;
+                    case '2':
+                        System.out.print("Enter the first number: ");
+                        double num1 = scanner.nextDouble();
+                        System.out.print("Enter the second number: ");
+                        double num2 = scanner.nextDouble();
+                        result = calculator.subtract(num1, num2);
                         break;
                     case '3':
                         System.out.print("Enter how many numbers you want to multiply: ");
@@ -49,26 +41,14 @@ public class Main {
                             System.out.print("Enter number " + (i + 1) + ": ");
                             multiplyNumbers[i] = scanner.nextDouble();
                         }
-                        result = multiply(multiplyNumbers);
-                        break;
-                    case '2':
-                        // Subtraction
-                        System.out.print("Enter the first number: ");
-                        double num1 = scanner.nextDouble();
-                        System.out.print("Enter the second number: ");
-                        double num2 = scanner.nextDouble();
-                        result = num1 - num2;
+                        result = calculator.multiply(multiplyNumbers);
                         break;
                     case '4':
-                        // Division
                         System.out.print("Enter the first number: ");
                         double num3 = scanner.nextDouble();
                         System.out.print("Enter the second number: ");
                         double num4 = scanner.nextDouble();
-                        if (num4 == 0) {
-                            throw new IllegalArgumentException("Division by zero is not allowed");
-                        }
-                        result = num3 / num4;
+                        result = calculator.divide(num3, num4);
                         break;
                     default:
                         System.out.println("Invalid operation!");
@@ -86,8 +66,7 @@ public class Main {
                 }
 
             } catch (Exception e) {
-                System.out.println("Error: " + e.getMessage());
-                // Clear scanner buffer after exception
+                System.out.println("Error: Invalid input " );
                 scanner.nextLine();
             }
         }

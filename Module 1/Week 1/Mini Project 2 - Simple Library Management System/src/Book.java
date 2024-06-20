@@ -1,17 +1,12 @@
-import java.util.ArrayList;
-
-public class Book {
+// Book.java
+public class Book extends Reference {
     private String title;
     private String author;
-    private String ISBN;
 
     public Book(String title, String author, String ISBN) {
+        super(ISBN);
         this.title = title;
         this.author = author;
-        this.ISBN = ISBN;
-    }
-
-    public Book() {
     }
 
     public String getTitle() {
@@ -30,13 +25,14 @@ public class Book {
         this.author = author;
     }
 
-    public String getISBN() {
-        return ISBN;
+    @Override
+    public String toString() {
+        return title + " by " + author + " - ISBN: " + getISBN();
     }
-
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+    // polymorphism
+    @Override
+    public void displayInfo() {
+        System.out.println("Type of Publication: Book ");
     }
-
 
 }
