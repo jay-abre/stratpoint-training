@@ -1,4 +1,6 @@
-// Implementation of Inheritance and Polymorphism
+package com.example;
+
+// Implementation of Inheritance
 public class Reference {
     private String ISBN;
 
@@ -13,11 +15,6 @@ public class Reference {
     public void setISBN(String ISBN) {
         this.ISBN = ISBN;
     }
-
-    // polymorphism
-    public void displayInfo() {
-        System.out.println("Type of Publication: ");
-    }
-
 }
+
 

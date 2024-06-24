@@ -1,6 +1,8 @@
+package com.example;
 
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 import java.util.Scanner;
-
 
 public class Main {
     public static void main(String[] args) {
@@ -18,24 +20,26 @@ public class Main {
             scanner.nextLine();
 
             switch (choice) {
+                //Add a Book
                 case 1:
                     bookService.addBook();
+                    bookService.showPublicationType();
                     break;
+                // Remove a book by its ISBN
                 case 2:
-                    System.out.print("Enter ISBN of the book to remove: ");
                     String isbnToRemove = scanner.nextLine().trim();
                     bookService.removeBook(isbnToRemove);
                     break;
+                // Search a book by ISBN
                 case 3:
-                    System.out.print("Enter title of the book to search: ");
-                    String titleToSearch = scanner.nextLine().trim();
-                    bookService.searchBook(titleToSearch);
+                    String isbnToSearch = scanner.nextLine().trim();
+                    bookService.searchBook(isbnToSearch);
                     break;
+                // Display all books
                 case 4:
-                    System.out.println("\n--- List of All Books ---");
-                    bookService.displayBooks();
-
+                    bookService.displayAllBooks();
                     break;
+                //Exit the program
                 case 5:
                     System.out.println("Exiting program.");
                     scanner.close();

@@ -1,8 +1,10 @@
+package com.example;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class BookService implements DisplayBooks {
+public class BookService implements ShowPublicationType {
 
     private List<Book> books;
     private Scanner scanner;
@@ -25,11 +27,10 @@ public class BookService implements DisplayBooks {
         Book newBook = new Book(title, author, isbn);
         books.add(newBook);
         System.out.println("Added book: " + newBook);
-        newBook.displayInfo();
-
     }
 
     public void removeBook(String isbn) {
+        System.out.print("Enter ISBN of the book to remove: ");
         boolean removed = false;
         for (Book book : books) {
             if (book.getISBN().equals(isbn)) {
@@ -45,6 +46,7 @@ public class BookService implements DisplayBooks {
     }
 
     public void searchBook(String ISBN) {
+        System.out.print("Enter the ISBN of the book to search: ");
         List<Book> foundBooks = new ArrayList<>();
         for (Book book : books) {
             if (book.getISBN().equals(ISBN)) {
@@ -61,6 +63,10 @@ public class BookService implements DisplayBooks {
         }
     }
 
+    @Override
+    public void showPublicationType() {
+        System.out.println("Type of Publication: Book ");
+    }
 
     public void displayAllBooks() {
         if (books.isEmpty()) {
@@ -74,3 +80,4 @@ public class BookService implements DisplayBooks {
     }
 
 }
+

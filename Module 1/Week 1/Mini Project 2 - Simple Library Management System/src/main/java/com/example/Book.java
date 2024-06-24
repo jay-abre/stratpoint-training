@@ -1,4 +1,6 @@
-// Book.java
+package com.example;
+
+// Book
 public class Book extends Reference {
     private String title;
     private String author;
@@ -29,10 +31,6 @@ public class Book extends Reference {
     public String toString() {
         return title + " by " + author + " - ISBN: " + getISBN();
     }
-    // polymorphism
-    @Override
-    public void displayInfo() {
-        System.out.println("Type of Publication: Book ");
-    }
+
 
 }
