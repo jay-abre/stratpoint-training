@@ -1,3 +1,3 @@
 public interface DisplayBooks {
-    public void displayBooks ();
+    public void displayAllBooks ();
 }

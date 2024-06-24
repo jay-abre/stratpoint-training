@@ -62,7 +62,7 @@ public class BookService implements DisplayBooks {
     }
 
 
-    public void displayBooks() {
+    public void displayAllBooks() {
         if (books.isEmpty()) {
             System.out.println("No books in the library.");
         } else {
