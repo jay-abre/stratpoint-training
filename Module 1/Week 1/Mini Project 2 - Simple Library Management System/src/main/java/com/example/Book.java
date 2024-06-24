@@ -27,6 +27,7 @@ public class Book extends Reference {
         this.author = author;
     }
 
+    // for easy formatting
     @Override
     public String toString() {
         return title + " by " + author + " - ISBN: " + getISBN();

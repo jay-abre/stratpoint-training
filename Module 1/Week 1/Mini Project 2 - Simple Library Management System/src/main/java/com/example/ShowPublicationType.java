@@ -1,6 +1,11 @@
 package com.example;
 
-//interface for  what type of publication (book, article, magazine, etc)
+/**
+ * Interface for displaying the type of publication.
+ *
+ * Library may have different types of publications, not limited to books.
+ * This interface provides a method to show the publication type.
+ */
 
 public interface ShowPublicationType {
     public void showPublicationType ();

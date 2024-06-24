@@ -1,6 +1,10 @@
 package com.example;
 
-// Implementation of Inheritance
+/**
+ * Represents a reference or identifier for publications.
+ * In this case, specifically for books using ISBN (International Standard Book Number).
+ * This class demonstrates inheritance for managing different publication types.
+ */
 public class Reference {
     private String ISBN;
 
