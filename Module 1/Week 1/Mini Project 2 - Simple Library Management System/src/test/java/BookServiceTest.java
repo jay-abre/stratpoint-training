@@ -14,6 +14,7 @@ public class BookServiceTest {
         bookService = new BookService();
     }
 
+    //testing for add book
     @Test
     public void testAddBook() {
         bookService.addBook("The Grass is Always Greener", "Jeffrey Archer", "1-86092-049-7");
@@ -24,6 +25,7 @@ public class BookServiceTest {
         assertEquals("1-86092-049-7", books.get(0).getISBN());
     }
 
+    //testing for removing book
     @Test
     public void testRemoveBook() {
         bookService.addBook("The Grass is Always Greener", "Jeffrey Archer", "1-86092-049-7");
@@ -32,6 +34,7 @@ public class BookServiceTest {
         assertTrue(books.isEmpty());
     }
 
+    //testing for searching book
     @Test
     public void testSearchBook() {
         bookService.addBook("The Grass is Always Greener", "Jeffrey Archer", "1-86092-049-7");
@@ -41,6 +44,7 @@ public class BookServiceTest {
         assertEquals("Author1", foundBooks.get(0).getAuthor());
         assertEquals("ISBN1", foundBooks.get(0).getISBN());
     }
+    //testing of displaying all books
     @Test
     public void testDisplayAllBooks() {
         // Initially, the books list should be empty
