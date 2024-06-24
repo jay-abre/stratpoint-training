@@ -33,7 +33,7 @@ public class Main {
                     break;
                 case 4:
                     System.out.println("\n--- List of All Books ---");
-                    bookService.displayAllBooks();
+                    bookService.displayBooks();
 
                     break;
                 case 5:

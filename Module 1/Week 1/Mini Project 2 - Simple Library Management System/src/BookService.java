@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class BookService {
+public class BookService implements DisplayBooks {
 
     private List<Book> books;
     private Scanner scanner;
@@ -62,7 +62,7 @@ public class BookService {
     }
 
 
-    public void displayAllBooks() {
+    public void displayBooks() {
         if (books.isEmpty()) {
             System.out.println("No books in the library.");
         } else {
