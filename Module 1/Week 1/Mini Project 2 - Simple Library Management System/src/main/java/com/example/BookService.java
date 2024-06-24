@@ -14,23 +14,13 @@ public class BookService implements ShowPublicationType {
         this.scanner = new Scanner(System.in);
     }
 
-    public void addBook() {
-        System.out.print("Enter title of the book: ");
-        String title = scanner.nextLine().trim();
-
-        System.out.print("Enter author of the book: ");
-        String author = scanner.nextLine().trim();
-
-        System.out.print("Enter ISBN of the book: ");
-        String isbn = scanner.nextLine().trim();
-
-        Book newBook = new Book(title, author, isbn);
+    public void addBook(String bookTitle, String bookAuthor, String bookIsbn) {
+        Book newBook = new Book(bookTitle, bookAuthor, bookIsbn);
         books.add(newBook);
         System.out.println("Added book: " + newBook);
     }
 
     public void removeBook(String isbn) {
-        System.out.print("Enter ISBN of the book to remove: ");
         boolean removed = false;
         for (Book book : books) {
             if (book.getISBN().equals(isbn)) {
@@ -39,13 +29,14 @@ public class BookService implements ShowPublicationType {
                 removed = true;
                 break;
             }
+
         }
         if (!removed) {
             System.out.println("Book with ISBN " + isbn + " not found.");
         }
     }
 
-    public void searchBook(String ISBN) {
+    public List<Book> searchBook(String ISBN) {
         System.out.print("Enter the ISBN of the book to search: ");
         List<Book> foundBooks = new ArrayList<>();
         for (Book book : books) {
@@ -61,6 +52,7 @@ public class BookService implements ShowPublicationType {
         } else {
             System.out.println("No books found with ISBN '" + ISBN + "'.");
         }
+        return foundBooks;
     }
 
     @Override
@@ -77,6 +69,10 @@ public class BookService implements ShowPublicationType {
                 System.out.println(book);
             }
         }
+    }
+    // Method to get the list of all books
+    public List<Book> getBooks() {
+        return books;
     }
 
 }

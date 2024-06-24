@@ -22,11 +22,21 @@ public class Main {
             switch (choice) {
                 //Add a Book
                 case 1:
-                    bookService.addBook();
+                    System.out.print("Enter title of the book: ");
+                    String bookTitle = scanner.nextLine().trim();
+
+                    System.out.print("Enter author of the book: ");
+                    String bookAuthor = scanner.nextLine().trim();
+
+                    System.out.print("Enter ISBN of the book: ");
+                    String bookIsbn = scanner.nextLine().trim();
+
+                    bookService.addBook(bookTitle, bookAuthor, bookIsbn);
                     bookService.showPublicationType();
                     break;
                 // Remove a book by its ISBN
                 case 2:
+                    System.out.print("Enter ISBN of the book to remove: ");
                     String isbnToRemove = scanner.nextLine().trim();
                     bookService.removeBook(isbnToRemove);
                     break;
