@@ -1,6 +1,6 @@
 package com.example;
 
-// Book
+// Book class extends Reference, meaning it inherits all of its properties and methods
 public class Book extends Reference {
     private String title;
     private String author;
