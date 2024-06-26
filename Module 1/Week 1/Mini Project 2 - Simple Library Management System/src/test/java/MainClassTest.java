@@ -1,4 +1,4 @@
-import com.example.Main;
+import com.abrenica.Main;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

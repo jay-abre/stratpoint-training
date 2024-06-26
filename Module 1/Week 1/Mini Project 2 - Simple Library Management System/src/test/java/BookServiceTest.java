@@ -1,4 +1,4 @@
-import com.example.*;
+import com.abrenica.*;
 import org.junit.jupiter.api.*;
 
 import java.util.List;

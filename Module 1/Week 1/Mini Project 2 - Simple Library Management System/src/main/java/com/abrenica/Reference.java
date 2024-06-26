@@ -1,4 +1,4 @@
-package com.example;
+package com.abrenica;
 
 /**
  * Represents a reference or identifier for different publications in the library (journals, articles, magazines)       .

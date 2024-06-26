@@ -1,4 +1,4 @@
-package com.example;
+package com.abrenica;
 
 /**
  * Interface for displaying the type of publication.
