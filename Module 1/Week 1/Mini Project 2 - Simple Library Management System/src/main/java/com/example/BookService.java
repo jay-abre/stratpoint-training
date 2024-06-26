@@ -61,7 +61,6 @@ public class BookService implements ShowPublicationType {
      * @return List of books matching the given ISBN.
      */
     public List<Book> searchBook(String ISBN) {
-        System.out.print("Enter the ISBN of the book to search: ");
         List<Book> foundBooks = new ArrayList<>();
         for (Book book : books) {
             if (book.getISBN().equals(ISBN)) {

@@ -15,7 +15,7 @@ public class Main {
             System.out.println("3. Search for books by ISBN");
             System.out.println("4. Show all books");
             System.out.println("5. Exit");
-            System.out.print("Enter your choice: ");
+            System.out.print("\tEnter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -42,6 +42,7 @@ public class Main {
                     break;
                 // Search a book by ISBN
                 case 3:
+                    System.out.print("Enter the ISBN of the book to search: ");
                     String isbnToSearch = scanner.nextLine().trim();
                     bookService.searchBook(isbnToSearch);
                     break;
