@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  * Service class for managing books in a library.
@@ -20,6 +21,7 @@ public class BookService implements IBookService {
     private List<Book> books; // List to store all books in the library
     private Scanner scanner; // Scanner object for user input
     private static final Logger logger = LoggerFactory.getLogger(BookService.class);
+    private ISBNValidator validator = new ISBNValidator(); // ISBN validator object, see addBook method
 
     /**
      * Constructor to initialize BookService with an empty list of books and a Scanner object.
@@ -29,15 +31,9 @@ public class BookService implements IBookService {
         this.scanner = new Scanner(System.in);
     }
 
-    /**
-     * Adds a new book to the library.
-     * @param bookTitle Title of the book.
-     * @param bookAuthor Author of the book.
-     * @param bookIsbn ISBN of the book.
-     */
+   //add book to the library
     public void addBook(String bookTitle, String bookAuthor, String bookIsbn) {
         Book newBook = new Book(bookTitle, bookAuthor, bookIsbn);
-        ISBNValidator validator = new ISBNValidator();
         boolean isValidISBN = validator.isValid(bookIsbn);
 
         if (isValidISBN) {
@@ -49,64 +45,39 @@ public class BookService implements IBookService {
         } else {
             System.out.println("The ISBN is not valid.");
         }
-
-
     }
 
-    /**
-     * Removes a book from the library by its ISBN.
-     * @param isbn ISBN of the book to be removed.
-     */
+    // Removes a book from the library by its ISBN.
     public void removeBook(String isbn) {
-        boolean removed = false;
-        for (Book book : books) {
-            if (book.getISBN().equals(isbn)) {
-                books.remove(book);
-                System.out.println("Removed book: " + book);
-                removed = true;
-                break;
-            }
-
-        }
-        if (!removed) {
+        boolean removed = books.removeIf(book -> book.getISBN().equals(isbn));
+        if (removed) {
+            System.out.println("Removed book with ISBN: " + isbn);
+        } else {
             System.out.println("Book with ISBN " + isbn + " not found.");
         }
     }
-
-    /**
-     * Searches for books in the library by ISBN.
-     * @param ISBN ISBN of the book to search for.
-     * @return List of books matching the given ISBN.
-     */
+    //Searches for books in the library by ISBN.
     public List<Book> searchBook(String ISBN) {
-        List<Book> foundBooks = new ArrayList<>();
-        for (Book book : books) {
-            if (book.getISBN().equals(ISBN)) {
-                foundBooks.add(book);
-            }
-        }
+        List<Book> foundBooks = books.stream()
+                .filter(book -> book.getISBN().equals(ISBN))
+                .collect(Collectors.toList());
+
         if (!foundBooks.isEmpty()) {
             System.out.println("Found " + foundBooks.size() + " book(s) with ISBN '" + ISBN + "':");
-            for (Book book : foundBooks) {
-                System.out.println(book);
-            }
+            foundBooks.forEach(System.out::println);
         } else {
             System.out.println("No books found with ISBN '" + ISBN + "'.");
         }
         return foundBooks;
     }
 
-    /**
-     * Shows the type of publication handled by this service (always "Book" in this basic version).
-     */
+    //Shows the type of publication handled by this service (always "Book" in this basic version).
     @Override
     public void showPublicationType() {
         System.out.println("Type of Publication: Book ");
     }
 
-    /**
-     * Displays all books currently in the library.
-     */
+    //Displays all books currently in the library.
     public void displayAllBooks() {
         if (books.isEmpty()) {
             System.out.println("No books in the library.");
