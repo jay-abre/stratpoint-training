@@ -1,5 +1,7 @@
 package com.abrenica;
 
+import org.apache.commons.validator.routines.ISBNValidator;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -31,8 +33,18 @@ public class BookService implements ShowPublicationType {
      */
     public void addBook(String bookTitle, String bookAuthor, String bookIsbn) {
         Book newBook = new Book(bookTitle, bookAuthor, bookIsbn);
-        books.add(newBook);
-        System.out.println("Added book: " + newBook);
+        ISBNValidator validator = new ISBNValidator();
+        boolean isValidISBN = validator.isValid(bookIsbn);
+
+        if (isValidISBN) {
+            System.out.println("The ISBN is valid.");
+            books.add(newBook);
+            System.out.println("Added book: " + newBook);
+        } else {
+            System.out.println("The ISBN is not valid.");
+        }
+
+
     }
 
     /**

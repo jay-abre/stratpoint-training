@@ -24,6 +24,12 @@ public class BookServiceTest {
         assertEquals("Jeffrey Archer", books.get(0).getAuthor());
         assertEquals("1-86092-049-7", books.get(0).getISBN());
     }
+    //testing for add book exception handler
+    @Test
+    public void testAddBookError() {
+        bookService.addBook("The Grass is Always Greener", "Jeffrey Archer", "1-86092-049");
+        assertEquals("The ISBN is not valid.", "The ISBN is not valid.");
+    }
 
     //testing for removing book
     @Test
