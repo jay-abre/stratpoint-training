@@ -1,3 +1,5 @@
+package model;
+
 import com.abrenica.model.Reference;
 import org.junit.jupiter.api.*;
 
