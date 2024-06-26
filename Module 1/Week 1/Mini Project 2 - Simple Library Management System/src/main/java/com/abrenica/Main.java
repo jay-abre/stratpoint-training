@@ -10,12 +10,15 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            System.out.println("+--------------------------------+");
+            System.out.println("| Welcome to the Library System! |");
+            System.out.println("+--------------------------------+");
             System.out.println("\n1. Add a book");
             System.out.println("2. Remove a book by ISBN");
             System.out.println("3. Search for books by ISBN");
             System.out.println("4. Show all books");
             System.out.println("5. Exit");
-            System.out.print("\tEnter your choice: ");
+            System.out.print("\nEnter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -32,7 +35,7 @@ public class Main {
                     String bookIsbn = scanner.nextLine().trim();
 
                     bookService.addBook(bookTitle, bookAuthor, bookIsbn);
-                    bookService.showPublicationType();
+
                     break;
                 // Remove a book by its ISBN
                 case 2:

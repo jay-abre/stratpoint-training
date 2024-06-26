@@ -14,7 +14,7 @@ import java.util.Scanner;
  * as well as showing the type of publication (inherited from ShowPublicationType).
  */
 
-public class BookService implements ShowPublicationType {
+public class BookService implements IBookService {
 
     private List<Book> books; // List to store all books in the library
     private Scanner scanner; // Scanner object for user input
@@ -40,9 +40,11 @@ public class BookService implements ShowPublicationType {
         boolean isValidISBN = validator.isValid(bookIsbn);
 
         if (isValidISBN) {
-            System.out.println("The ISBN is valid.");
             books.add(newBook);
-            System.out.println("Added book: " + newBook);
+            System.out.println("\n\n--------------------------------------------------");
+            System.out.println("Book added successfully to the library:" + newBook);
+            System.out.println("-------------------------------------------------------");
+            showPublicationType();
         } else {
             System.out.println("The ISBN is not valid.");
         }
