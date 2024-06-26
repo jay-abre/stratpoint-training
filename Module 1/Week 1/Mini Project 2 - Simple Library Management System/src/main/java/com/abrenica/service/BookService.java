@@ -1,5 +1,6 @@
-package com.abrenica;
+package com.abrenica.service;
 
+import com.abrenica.model.Book;
 import org.apache.commons.validator.routines.ISBNValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

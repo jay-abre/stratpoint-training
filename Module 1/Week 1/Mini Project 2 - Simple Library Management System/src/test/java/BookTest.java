@@ -1,4 +1,4 @@
-import com.abrenica.*;
+import com.abrenica.model.Book;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;

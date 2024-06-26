@@ -1,4 +1,4 @@
-package com.abrenica;
+package com.abrenica.model;
 
 // Book class extends Reference, meaning it inherits all of its properties and methods
 

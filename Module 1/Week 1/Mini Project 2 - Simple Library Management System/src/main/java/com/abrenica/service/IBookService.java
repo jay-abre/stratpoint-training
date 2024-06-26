@@ -1,4 +1,6 @@
-package com.abrenica;
+package com.abrenica.service;
+
+import com.abrenica.model.Book;
 
 import java.util.List;
 
