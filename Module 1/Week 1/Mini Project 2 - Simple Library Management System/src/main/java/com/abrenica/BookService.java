@@ -1,6 +1,8 @@
 package com.abrenica;
 
 import org.apache.commons.validator.routines.ISBNValidator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,7 @@ public class BookService implements ShowPublicationType {
 
     private List<Book> books; // List to store all books in the library
     private Scanner scanner; // Scanner object for user input
+    private static final Logger logger = LoggerFactory.getLogger(BookService.class);
 
     /**
      * Constructor to initialize BookService with an empty list of books and a Scanner object.
