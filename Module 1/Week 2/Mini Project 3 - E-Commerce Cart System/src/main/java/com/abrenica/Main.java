@@ -22,7 +22,7 @@ public class Main {
             clearConsole();
 
             // Display sorted list of products by category
-            System.out.println("Welcome to Our E-commerce Store!");
+            System.out.println("Welcome to JAY STORE!");
             System.out.println("Products Available:");
             System.out.println("-------------------------------------------------------------------------------------------------------------------");
             System.out.printf("%-5s %-25s %-15s %-20s %-15s %-10s\n", "ID", "Name", "Price", "Category", "Availability", "Quantity");
