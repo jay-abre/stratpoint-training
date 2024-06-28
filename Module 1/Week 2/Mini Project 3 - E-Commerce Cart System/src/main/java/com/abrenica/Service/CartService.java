@@ -68,12 +68,20 @@ public class CartService implements ICartService {
             logger.info("Your cart is empty.");
         } else {
             logger.info("Items in your cart:");
-            logger.info(String.format("%-20s %-10s %-10s %-15s", "Product Name", "Price", "Quantity", "Availability"));
-            myCart.forEach(product -> logger.info(String.format("%-20s $%-10.2f %-10d %-15s", product.getName(), product.getPrice(), product.getQuantity(), (product.isInStock() ? "Available" : "Not available"))));
+            logger.info(String.format("%-20s %-30s %-10s %-10s %-15s", "Product ID", "Product Name", "Price", "Quantity", "Availability"));
+            for (Product product : myCart) {
+                String productName = product.getName();
+                if (productName.length() > 30) {
+                    productName = productName.substring(0, 27) + "..."; // Shorten long names for display
+                }
+                logger.info(String.format("%-20d %-30s $%-10.2f %-10d %-15s", product.getProductId(), productName, product.getPrice(), product.getQuantity(), (product.isInStock() ? "Available" : "Not available")));
+            }
             double totalPrice = getTotal();
             logger.info(String.format("Total Price: $%.2f", totalPrice));
         }
     }
+
+
 
     @Override
     public void checkout(Scanner scanner) {
